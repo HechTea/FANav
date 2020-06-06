@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Furaffinity Newer, Older Nav
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  Navigate through pages in FurAffinity with keyboard
 // @author       HechTea
 // @match        https://www.furaffinity.net/view/*
@@ -185,7 +185,23 @@
         }
     }
 
-    try { newerPageUrl = document.querySelector(".next.button-link").href; } catch(e) {newerPageUrl = "#"};
-    try { olderPageUrl = document.querySelector(".prev.button-link").href; } catch(e) {olderPageUrl = "#"};
+    if (document.querySelector("#page-submission")) { // is old style
+        try { newerPageUrl = document.querySelector(".next.button-link").href; } catch(e) { newerPageUrl = "#" };
+        try { olderPageUrl = document.querySelector(".prev.button-link").href; } catch(e) { olderPageUrl = "#" };
+    } else {
+        newerPageUrl = olderPageUrl = "#";
+        var nodes = document.querySelectorAll("#columnpage .submission-content .favorite-nav a");
+        nodes.forEach(function(e){
+            switch(e.textContent) {
+                case "Prev":
+                    newerPageUrl = e.href;
+                    break;
+                case "Next":
+                    olderPageUrl = e.href;
+                    break;
+            }
+        })
+    }
+
 
 })();
