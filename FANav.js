@@ -8,7 +8,7 @@
 // @match        http://www.furaffinity.net/view/*
 // @match        https://www.furaffinity.net/full/*
 // @match        http://www.furaffinity.net/full/*
-// @updateURL
+// @updateURL    https://raw.githubusercontent.com/HechTea/FANav/master/FANav.js
 // @grant        none
 // ==/UserScript==
 
