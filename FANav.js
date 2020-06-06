@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Furaffinity Newer, Older Nav
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Navigate through pages in FurAffinity with keyboard
 // @author       HechTea
 // @match        https://www.furaffinity.net/view/*
